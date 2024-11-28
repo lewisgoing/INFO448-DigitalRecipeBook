@@ -1,5 +1,6 @@
 package edu.uw.ischool.jtay25.digitalrecipebook
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +13,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class FavoriteRecipesActivity : AppCompatActivity() {
+
+    private lateinit var navBar : BottomNavigationView
 
     private inner class RecipeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val titleText: TextView = view.findViewById(R.id.recipeTitle)
@@ -65,5 +69,24 @@ class FavoriteRecipesActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recipesRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = RecipeAdapter()
+
+        navBar = findViewById(R.id.bottomNavigationView)
+        navBar.setSelectedItemId(R.id.favorite)
+
+        navBar.setOnItemSelectedListener{ item ->
+            when(item.itemId) {
+                R.id.home -> {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    true
+                }
+                R.id.favorite -> {
+                    true
+                }
+                //R.id.add -> startActivity(Intent(this, AddRecipeActivity::class.java))
+                else -> false
+            }
+        }
+
+
     }
 }
