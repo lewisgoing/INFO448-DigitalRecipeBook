@@ -4,6 +4,7 @@
     <string name="make_favorite">Add to Favorites</string>
     <string name="author_name">Kush Patel</string>
     <string name="time">20 mins</string>
+    <string name="chef_name_format">By %1$s</string>
     <string name="ingredients">Ingredients</string>
     <string name="instructions">Instructions</string>
 </resources>

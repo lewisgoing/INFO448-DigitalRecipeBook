@@ -30,6 +30,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.searchContainer, SearchFragment.newInstance())
+            .commit()
+
         //supportFragmentManager.beginTransaction().replace(R.id.frameLayout, CategoriesFragment()).commit()
 
         navBar = findViewById(R.id.bottomNavigationView)
@@ -49,6 +54,15 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
+
+    }
+
+    private fun showSearchFragment() {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.frameLayout, SearchFragment.newInstance())
+            .addToBackStack(null)
+            .commit()
     }
 
 
