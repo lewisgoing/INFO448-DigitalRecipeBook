@@ -42,12 +42,12 @@
     <FrameLayout
         android:id="@+id/frameLayout"
         android:layout_width="414dp"
-        android:layout_height="527dp">
+        android:layout_height="527dp" >
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/categoryRecycler"
             android:layout_width="410dp"
-            android:layout_height="491dp" />
+            android:layout_height="505dp" />
     </FrameLayout>
 
     <com.google.android.material.bottomappbar.BottomAppBar
