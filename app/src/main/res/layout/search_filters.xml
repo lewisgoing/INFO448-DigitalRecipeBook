@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Category Filters Section -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/category"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <Spinner
+        android:id="@+id/categorySpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Cooking Time Filters Section -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cooking_time"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+    <RadioGroup
+        android:id="@+id/timeGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/anyTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/any_time"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/quick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/quick_under_30_min"/>
+
+        <RadioButton
+            android:id="@+id/medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/medium_30_60_min"/>
+
+        <RadioButton
+            android:id="@+id/long_duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/long_over_60_min"/>
+    </RadioGroup>
+
+</LinearLayout>
