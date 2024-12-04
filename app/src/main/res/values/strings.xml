@@ -8,4 +8,14 @@
     <string name="ingredients">Ingredients</string>
     <string name="instructions">Instructions</string>
     <string name="select_category">Select Category</string>
+    <string name="home">Home</string>
+    <string name="favorite_recipes">Favorite Recipes</string>
+    <string name="add_a_recipe">Add a recipe</string>
+    <string name="filter_recipes">Filter recipes</string>
+    <string name="any_time">Any Time</string>
+    <string name="quick_under_30_min">Quick (under 30 min)</string>
+    <string name="medium_30_60_min">Medium (30–60 min)</string>
+    <string name="long_over_60_min">Long (over 60 min)</string>
+    <string name="cooking_time">Cooking Time</string>
+    <string name="category">Category</string>
 </resources>
