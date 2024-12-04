@@ -19,10 +19,10 @@ class SearchFragment : Fragment() {
 
     // sample data before we implement datalink layer
     private val allRecipes = listOf(
-        Recipe("Traditional Spare Ribs", "Chef John", "20 min", "4.0", R.drawable.ribs),
-        Recipe("Spice Roasted Chicken", "Mark Kelvin", "20 min", "4.0", R.drawable.chicken),
-        Recipe("Spicy Fried Rice With Chicken Bali", "Spicy Nelly", "20 min", "4.0", R.drawable.fried_rice),
-        Recipe("Lamb Chops", "Chef Maria", "20 min", "3.0", R.drawable.lamb_chops)
+        Recipe("Traditional Spare Ribs", "Chef John", "20 min", "4.0", R.drawable.ribs, "Dinner"),
+        Recipe("Spice Roasted Chicken", "Mark Kelvin", "20 min", "4.0", R.drawable.chicken, "Dinner"),
+        Recipe("Spicy Fried Rice With Chicken Bali", "Spicy Nelly", "20 min", "4.0", R.drawable.fried_rice, "Dinner"),
+        Recipe("Lamb Chops", "Chef Maria", "20 min", "3.0", R.drawable.lamb_chops,"Dinner")
     )
 
 
@@ -142,7 +142,8 @@ class SearchFragment : Fragment() {
         val chef: String,
         val duration: String,
         val rating: String,
-        val image: Int
+        val image: Int,
+        val category: String
     )
 
     companion object {
