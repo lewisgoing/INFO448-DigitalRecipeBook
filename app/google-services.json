@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "131463073253",
+    "project_id": "digitalrecipebook-de800",
+    "storage_bucket": "digitalrecipebook-de800.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131463073253:android:ce21ef6a039f6eec1cf30c",
+        "android_client_info": {
+          "package_name": "edu.uw.ischool.jtay25.digitalrecipebook"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvT9dbV3EPu_MdA2cdFnQMmHZhIA08U3o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
