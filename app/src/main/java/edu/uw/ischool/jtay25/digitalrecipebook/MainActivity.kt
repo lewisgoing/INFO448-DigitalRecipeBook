@@ -24,7 +24,6 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
 
-    private val db = FirebaseFirestore.getInstance()
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: RecipeAdapter
     private var recipeList = mutableListOf<Recipe>()
@@ -88,13 +87,15 @@ class MainActivity : AppCompatActivity() {
 //    }
 
     private fun filterRecipes(category: String) {
-        db.collection("recipes")
-            .whereEqualTo("category", category) // Filter recipes by category
+        val db = com.google.firebase.database.FirebaseDatabase.getInstance()
+        val recipesRef = db.getReference("recipes")
+
+        recipesRef.orderByChild("category").equalTo(category)
             .get()
             .addOnSuccessListener { snapshot ->
                 recipeList.clear()
-                for (doc in snapshot.documents) {
-                    val recipe = doc.toObject(Recipe::class.java)
+                for (childSnapshot in snapshot.children) {
+                    val recipe = childSnapshot.getValue(Recipe::class.java)
                     if (recipe != null) recipeList.add(recipe)
                 }
                 adapter.notifyDataSetChanged()

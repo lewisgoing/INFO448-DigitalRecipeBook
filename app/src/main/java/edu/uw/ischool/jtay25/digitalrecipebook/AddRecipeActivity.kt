@@ -58,9 +58,11 @@ class AddRecipeActivity : AppCompatActivity() {
             instructions = instructions
         )
 
-        val db = FirebaseFirestore.getInstance()
-        db.collection("recipes").document(recipe.id)
-            .set(recipe)
+        // Use Realtime Database
+        val db = com.google.firebase.database.FirebaseDatabase.getInstance()
+        val recipesRef = db.getReference("recipes")
+
+        recipesRef.child(recipe.id).setValue(recipe)
             .addOnSuccessListener {
                 Toast.makeText(this, "Recipe saved successfully!", Toast.LENGTH_SHORT).show()
                 finish() // Close the activity and return to the previous screen
