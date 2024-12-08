@@ -7,8 +7,9 @@
         android:title="Home" />
 
     <item
-        android:id="@+id/blank"
-        android:title="" />
+        android:id="@+id/nav_add_recipe"
+        android:icon="@drawable/icon_addrecipe"
+        android:title="Add Recipe"  />
 
     <item
         android:id="@+id/favorite"

@@ -18,4 +18,11 @@
     <string name="long_over_60_min">Long (over 60 min)</string>
     <string name="cooking_time">Cooking Time</string>
     <string name="category">Category</string>
+    <string-array name="recipe_categories">
+        <item>Breakfast</item>
+        <item>Lunch</item>
+        <item>Dinner</item>
+        <item>Dessert</item>
+        <item>Other</item>
+    </string-array>
 </resources>
