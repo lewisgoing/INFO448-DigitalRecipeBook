@@ -31,16 +31,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+//        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         FirebaseApp.initializeApp(this)
         recyclerView = findViewById(R.id.cardView)
-        adapter = RecipeAdapter(recipeList) { recipe ->
-            val intent = Intent(this, RecipeDetailsFragment::class.java)
-            intent.putExtra("RECIPE_ID", recipe.id)
-            startActivity(intent)
-        }
         recyclerView.layoutManager = LinearLayoutManager(this)
+        adapter = RecipeAdapter(recipeList) { recipe ->
+            navigateToRecipeDetails(recipe)
+        }
         recyclerView.adapter = adapter
 // get rid of intent
 //        supportFragmentManager.beginTransaction()
@@ -85,6 +83,12 @@ class MainActivity : AppCompatActivity() {
 //            .addToBackStack(null)
 //            .commit()
 //    }
+private fun navigateToRecipeDetails(recipe: Recipe) {
+    // Navigate to RecipeDetailsActivity with recipe ID
+    val intent = Intent(this, RecipeDetailsFragment::class.java)
+    intent.putExtra("RECIPE_ID", recipe.id)
+    startActivity(intent)
+}
 
     private fun filterRecipes(category: String) {
         val db = com.google.firebase.database.FirebaseDatabase.getInstance()
@@ -97,6 +101,10 @@ class MainActivity : AppCompatActivity() {
                 for (childSnapshot in snapshot.children) {
                     val recipe = childSnapshot.getValue(Recipe::class.java)
                     if (recipe != null) recipeList.add(recipe)
+                }
+                if (recipeList.isEmpty()) {
+                    // Notify user that no recipes were found
+                    Toast.makeText(this, "No recipes found for $category", Toast.LENGTH_SHORT).show()
                 }
                 adapter.notifyDataSetChanged()
             }

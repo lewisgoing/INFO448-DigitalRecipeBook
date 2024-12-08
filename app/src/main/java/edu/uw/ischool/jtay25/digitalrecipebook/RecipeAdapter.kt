@@ -9,22 +9,22 @@ import androidx.recyclerview.widget.RecyclerView
 
 class RecipeAdapter(
     private val recipes: List<Recipe>,
-    private val onRecipeClick: (Recipe) -> Unit // Callback for item clicks
+    private val onRecipeClick: (Recipe) -> Unit // Callback for card clicks
 ) : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
 
-    // ViewHolder represents a single recipe card in the RecyclerView
     inner class RecipeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val title: TextView = view.findViewById(R.id.recipeTitle)
-        val chef: TextView = view.findViewById(R.id.chefName)
-        val duration: TextView = view.findViewById(R.id.duration)
-        val image: ImageView = view.findViewById(R.id.recipeImage)
+        private val titleText: TextView = view.findViewById(R.id.recipeTitle)
+        private val chefText: TextView = view.findViewById(R.id.chefName)
+        private val durationText: TextView = view.findViewById(R.id.duration)
 
-        init {
-            view.setOnClickListener {
-                val position = adapterPosition
-                if (position != RecyclerView.NO_POSITION) {
-                    onRecipeClick(recipes[position])
-                }
+        fun bind(recipe: Recipe) {
+            titleText.text = recipe.title
+            chefText.text = "By ${recipe.chef}"
+            durationText.text = recipe.duration
+
+            // Set click listener for navigating to details
+            itemView.setOnClickListener {
+                onRecipeClick(recipe) // Trigger callback
             }
         }
     }
@@ -36,11 +36,9 @@ class RecipeAdapter(
     }
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
-        val recipe = recipes[position]
-        holder.title.text = recipe.title
-        holder.chef.text = recipe.chef
-        holder.duration.text = recipe.duration
+        holder.bind(recipes[position])
     }
 
     override fun getItemCount(): Int = recipes.size
 }
+
