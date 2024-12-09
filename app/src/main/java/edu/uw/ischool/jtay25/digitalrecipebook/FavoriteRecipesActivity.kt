@@ -33,7 +33,7 @@ class FavoriteRecipesActivity : AppCompatActivity() {
         val chefText: TextView = view.findViewById(R.id.chefName)
         val durationText: TextView = view.findViewById(R.id.duration)
 //        val ratingText: TextView = view.findViewById(R.id.ratingText)
-        val recipeImage: ImageView = view.findViewById(R.id.recipeImage)
+//        val recipeImage: ImageView = view.findViewById(R.id.recipeImage)
         val bookmarkIcon: ImageView = view.findViewById(R.id.bookmarkIcon)
     }
 
@@ -54,6 +54,7 @@ class FavoriteRecipesActivity : AppCompatActivity() {
                 durationText.text = recipe.duration
 //                ratingText.text = recipe.rating
 //                recipeImage.setImageResource(recipe.imageResourceId)
+                bookmarkIcon.setImageResource(R.drawable.icon_bookmark_added)
 
                 bookmarkIcon.setOnClickListener {
                     removeRecipe(recipe.id)
@@ -61,6 +62,8 @@ class FavoriteRecipesActivity : AppCompatActivity() {
                 }
             }
         }
+
+
 
         override fun getItemCount() = recipes.size
 
