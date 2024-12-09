@@ -14,7 +14,7 @@
             android:id="@+id/bookmarkIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/icon_bookmark"
+            android:src="@drawable/icon_bookmark_added"
             android:contentDescription="Bookmark Icon"
             android:layout_gravity="end"
             android:padding="8dp" />
