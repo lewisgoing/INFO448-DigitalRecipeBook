@@ -16,11 +16,22 @@ class RecipeAdapter(
         private val titleText: TextView = view.findViewById(R.id.recipeTitle)
         private val chefText: TextView = view.findViewById(R.id.chefName)
         private val durationText: TextView = view.findViewById(R.id.duration)
+        private val bookmark: ImageView = view.findViewById(R.id.bookmarkIcon)
 
         fun bind(recipe: Recipe) {
             titleText.text = recipe.title
             chefText.text = "By ${recipe.chef}"
             durationText.text = recipe.duration
+
+            bookmark.setOnClickListener {
+                if(!recipe.tag) {
+                    recipe.tag = true
+                    bookmark.setImageResource(R.drawable.icon_bookmark_added)
+                } else {
+                    recipe.tag = false
+                    bookmark.setImageResource(R.drawable.icon_bookmark)
+                }
+            }
 
             // Set click listener for navigating to details
             itemView.setOnClickListener {

@@ -45,8 +45,6 @@ class MainActivity : AppCompatActivity() {
 //            .replace(R.id.searchContainer, SearchFragment.newInstance())
 //            .commit()
 
-        //supportFragmentManager.beginTransaction().replace(R.id.frameLayout, CategoriesFragment()).commit()
-
         navBar = findViewById(R.id.bottomNavigationView)
         navBar.setSelectedItemId(R.id.home)
 
