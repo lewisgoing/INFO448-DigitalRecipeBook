@@ -19,26 +19,26 @@
             android:layout_gravity="end"
             android:padding="8dp" />
 
-        <!-- Recipe Title -->
         <TextView
             android:id="@+id/titleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:text="Recipe Title"
             android:textSize="24sp"
             android:textStyle="bold"
             android:paddingBottom="8dp" />
 
-        <!-- Chef Name -->
         <TextView
             android:id="@+id/chefTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Chef: Chef Name"
-            android:textSize="16sp"
-            android:paddingBottom="8dp" />
+            android:textSize="18sp"
+            android:paddingBottom="8dp"
+            android:textStyle="bold"
+            />
 
-        <!-- Category -->
         <TextView
             android:id="@+id/categoryTextView"
             android:layout_width="match_parent"
@@ -47,7 +47,6 @@
             android:textSize="16sp"
             android:paddingBottom="8dp" />
 
-        <!-- Duration -->
         <TextView
             android:id="@+id/durationTextView"
             android:layout_width="match_parent"
@@ -56,7 +55,6 @@
             android:textSize="16sp"
             android:paddingBottom="16dp" />
 
-        <!-- Ingredients -->
         <TextView
             android:id="@+id/ingredientsHeader"
             android:layout_width="match_parent"
@@ -73,7 +71,6 @@
             android:text="Ingredient list"
             android:paddingBottom="16dp" />
 
-        <!-- Instructions -->
         <TextView
             android:id="@+id/instructionsHeader"
             android:layout_width="match_parent"
