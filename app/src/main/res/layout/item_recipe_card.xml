@@ -23,31 +23,31 @@
             android:layout_height="match_parent"
             android:background="@drawable/recipe_card_gradient_overlay"/>
 
-        <LinearLayout
-            android:id="@+id/ratingBadge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:padding="4dp"
-            android:layout_margin="16dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent">
+<!--        <LinearLayout-->
+<!--            android:id="@+id/ratingBadge"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:padding="4dp"-->
+<!--            android:layout_margin="16dp"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent">-->
 
-            <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:src="@drawable/star"
-                app:tint="@color/white"/>
+<!--            <ImageView-->
+<!--                android:layout_width="16dp"-->
+<!--                android:layout_height="16dp"-->
+<!--                android:src="@drawable/star"-->
+<!--                app:tint="@color/white"/>-->
 
-            <TextView
-                android:id="@+id/ratingText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                android:layout_marginStart="4dp"/>
-        </LinearLayout>
+<!--            <TextView-->
+<!--                android:id="@+id/ratingText"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textSize="14sp"-->
+<!--                android:layout_marginStart="4dp"/>-->
+<!--        </LinearLayout>-->
 
         <TextView
             android:id="@+id/recipeTitle"
