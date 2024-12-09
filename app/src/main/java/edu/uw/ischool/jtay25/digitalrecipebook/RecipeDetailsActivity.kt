@@ -80,8 +80,8 @@ class RecipeDetailsActivity : AppCompatActivity() {
                 chefTextView.text = "Chef: ${currentRecipe.chef}"
                 categoryTextView.text = "Category: ${currentRecipe.category}"
                 durationTextView.text = "Duration: ${currentRecipe.duration}"
-                ingredientsTextView.text = currentRecipe.ingredients.joinToString("\n")
-                instructionsTextView.text = currentRecipe.instructions.joinToString("\n")
+                ingredientsTextView.text = currentRecipe.ingredients.joinToString("\n\n")
+                instructionsTextView.text = currentRecipe.instructions.joinToString("\n\n")
                 updateBookmarkIcon(tag)
             } else {
                 Toast.makeText(this, "Recipe not found", Toast.LENGTH_SHORT).show()
