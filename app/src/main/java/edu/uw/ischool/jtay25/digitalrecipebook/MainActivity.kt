@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
 //    }
 private fun navigateToRecipeDetails(recipe: Recipe) {
     // Navigate to RecipeDetailsActivity with recipe ID
-    val intent = Intent(this, RecipeDetailsFragment::class.java)
+    val intent = Intent(this, RecipeDetailsActivity::class.java)
     intent.putExtra("RECIPE_ID", recipe.id)
     startActivity(intent)
 }
