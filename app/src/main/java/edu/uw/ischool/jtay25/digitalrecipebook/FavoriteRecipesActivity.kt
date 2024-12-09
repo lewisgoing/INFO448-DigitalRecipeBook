@@ -89,6 +89,7 @@ package edu.uw.ischool.jtay25.digitalrecipebook
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -182,10 +183,16 @@ class FavoriteRecipesActivity : AppCompatActivity() {
         navBar = findViewById(R.id.bottomNavigationView)
         navBar.selectedItemId = R.id.favorite
 
-        navBar.setOnItemSelectedListener { item ->
-            when (item.itemId) {
+        navBar.setOnItemSelectedListener{ item ->
+            when(item.itemId) {
                 R.id.home -> {
                     startActivity(Intent(this, MainActivity::class.java))
+                    true
+                }
+                R.id.nav_add_recipe -> {
+                    Log.d("Navigation", "Add Recipe clicked")
+                    val intent = Intent(this, AddRecipeActivity::class.java)
+                    startActivity(intent)
                     true
                 }
                 R.id.favorite -> true
