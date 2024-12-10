@@ -2,6 +2,7 @@ package edu.uw.ischool.jtay25.digitalrecipebook
 
 // get rid of intent
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -29,12 +30,17 @@ class MainActivity : AppCompatActivity() {
     private var recipeList = mutableListOf<Recipe>()
     private lateinit var navBar : BottomNavigationView
 
+
+    private lateinit var breakfast : ImageButton
+    private lateinit var lunch : ImageButton
+    private lateinit var dinner : ImageButton
+    private lateinit var appetizer : ImageButton
+    private lateinit var dessert : ImageButton
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         FirebaseApp.initializeApp(this)
-
-
 
         recyclerView = findViewById(R.id.cardView)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -43,16 +49,16 @@ class MainActivity : AppCompatActivity() {
         }
         recyclerView.adapter = adapter
 
-
-// get rid of intent
         setupNavigation()
         setupSearch()
-
     }
 
     private fun setupNavigation() {
         navBar = findViewById(R.id.bottomNavigationView)
         navBar.selectedItemId = R.id.home
+
+        val navBar = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        navBar.setSelectedItemId(R.id.home)
 
         navBar.setOnItemSelectedListener{ item ->
             when(item.itemId) {
@@ -61,20 +67,54 @@ class MainActivity : AppCompatActivity() {
                     startActivity(Intent(this, FavoriteRecipesActivity::class.java))
                     true
                 }
-                R.id.nav_add_recipe -> {
-                    Log.d("Navigation", "Add Recipe clicked")
-                    startActivity(Intent(this, AddRecipeActivity::class.java))
-                    true
-                }
                 else -> false
             }
         }
 
-        findViewById<ImageButton>(R.id.imageButton2).setOnClickListener { filterRecipes("Breakfast") }
-        findViewById<ImageButton>(R.id.imageButton3).setOnClickListener { filterRecipes("Lunch") }
-        findViewById<ImageButton>(R.id.imageButton4).setOnClickListener { filterRecipes("Dinner") }
-        findViewById<ImageButton>(R.id.imageButton5).setOnClickListener { filterRecipes("Appetizers") }
-        findViewById<ImageButton>(R.id.imageButton6).setOnClickListener { filterRecipes("Dessert") }
+        val addRecipe = findViewById<FloatingActionButton>(R.id.addRecipe)
+
+        addRecipe.setOnClickListener {
+            Log.d("Navigation", "Add Recipe clicked")
+            val intent = Intent(this, AddRecipeActivity::class.java)
+            startActivity(intent)
+        }
+
+        breakfast = findViewById<ImageButton>(R.id.imageButton1)
+        lunch = findViewById<ImageButton>(R.id.imageButton2)
+        dinner = findViewById<ImageButton>(R.id.imageButton3)
+        appetizer = findViewById<ImageButton>(R.id.imageButton4)
+        dessert = findViewById<ImageButton>(R.id.imageButton5)
+        var oldSelection = ""
+        breakfast.setOnClickListener {
+            val newSelection = "Breakfast"
+            filterRecipes(newSelection)
+            updateCategorySelection(newSelection, oldSelection)
+            oldSelection = newSelection
+        }
+        lunch.setOnClickListener {
+            val newSelection = "Lunch"
+            filterRecipes(newSelection)
+            updateCategorySelection(newSelection, oldSelection)
+            oldSelection = newSelection
+        }
+        dinner.setOnClickListener {
+            val newSelection = "Dinner"
+            filterRecipes(newSelection)
+            updateCategorySelection(newSelection, oldSelection)
+            oldSelection = newSelection
+        }
+        appetizer.setOnClickListener {
+            val newSelection = "Appetizers"
+            filterRecipes(newSelection)
+            updateCategorySelection(newSelection, oldSelection)
+            oldSelection = newSelection
+        }
+        dessert.setOnClickListener {
+            val newSelection = "Dessert"
+            filterRecipes(newSelection)
+            updateCategorySelection(newSelection, oldSelection)
+            oldSelection = newSelection
+        }
     }
 
 
@@ -120,6 +160,25 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Failed to load recipes: ${e.message}", Toast.LENGTH_SHORT).show()
             }
     }
+
+    private fun updateCategorySelection(newSelection: String, oldSelection: String) {
+        when(oldSelection) {
+            "Breakfast" -> { breakfast.setImageResource(R.drawable.icon_breakfast) }
+            "Lunch" -> { lunch.setImageResource(R.drawable.icon_lunch) }
+            "Dinner" -> { dinner.setImageResource(R.drawable.icon_dinner) }
+            "Appetizers" -> { appetizer.setImageResource(R.drawable.icon_appetizer) }
+            "Dessert" -> { dessert.setImageResource(R.drawable.icon_dessert) }
+            else -> {}
+        }
+        when(newSelection) {
+            "Breakfast" -> { breakfast.setImageResource(R.drawable.icon_breakfast_selected) }
+            "Lunch" -> { lunch.setImageResource(R.drawable.icon_lunch_selected) }
+            "Dinner" -> { dinner.setImageResource(R.drawable.icon_dinner_selected) }
+            "Appetizers" -> { appetizer.setImageResource(R.drawable.icon_appetizer_selected) }
+            "Dessert" -> { dessert.setImageResource(R.drawable.icon_dessert_selected) }
+        }
+    }
+
 
 //    private fun loadRecipes() {
 //        db.collection("recipes")

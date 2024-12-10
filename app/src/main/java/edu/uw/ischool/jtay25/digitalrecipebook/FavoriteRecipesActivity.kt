@@ -2,6 +2,7 @@ package edu.uw.ischool.jtay25.digitalrecipebook
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -111,6 +113,58 @@ class FavoriteRecipesActivity : AppCompatActivity() {
                 removeRecipeFromSharedPreferences(id)
             }
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_favorite_recipes)
+
+//        if (getRecipesFromSharedPreferences().isEmpty()) {
+//            val initialRecipes = arrayListOf(
+//                RecipeData("1", "Traditional Spare Ribs", "Chef John", "20 min", "4.0", R.drawable.ribs),
+//                RecipeData("2", "Spice Roasted Chicken", "Mark Kelvin", "20 min", "4.0", R.drawable.chicken),
+//                RecipeData("3", "Spicy Fried Rice With Chicken Bali", "Spicy Nelly", "20 min", "4.0", R.drawable.fried_rice),
+//                RecipeData("4", "Lamb Chops", "Chef Maria", "20 min", "3.0", R.drawable.lamb_chops)
+//            )
+//            saveRecipesToSharedPreferences(initialRecipes)
+//        }
+
+        val recyclerView = findViewById<RecyclerView>(R.id.recipesRecyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = RecipeAdapter()
+
+        recyclerView.setHasFixedSize(true)
+
+        val navBar = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        navBar.selectedItemId = R.id.favorite
+
+        navBar.setOnItemSelectedListener{ item ->
+            when(item.itemId) {
+                R.id.home -> {
+                    startActivity(Intent(this, MainActivity::class.java))
+                    true
+                }
+                R.id.favorite -> true
+                else -> false
+            }
+        }
+
+        val addRecipe = findViewById<FloatingActionButton>(R.id.addRecipe)
+
+        addRecipe.setOnClickListener {
+            Log.d("Navigation", "Add Recipe clicked")
+            val intent = Intent(this, AddRecipeActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun saveRecipesToSharedPreferences(recipes: List<RecipeData>) {
+        val sharedPreferences = getSharedPreferences("RecipePrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        val gson = Gson()
+        val json = gson.toJson(recipes)
+        editor.putString("recipes", json)
+        editor.apply()
     }
 
     private fun getRecipesFromSharedPreferences(): ArrayList<RecipeData> {

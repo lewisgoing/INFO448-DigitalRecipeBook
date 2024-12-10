@@ -4,61 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:padding="16dp">
+
+    <TextView
+        android:id="@+id/addTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add a recipe"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextTitle"
-        android:layout_width="376dp"
-        android:layout_height="65dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="15sp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="25dp"
         android:hint="Recipe Title"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/addTitle" />
 
     <EditText
         android:id="@+id/editTextChef"
-        android:layout_width="374dp"
-        android:layout_height="66dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="15sp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="10dp"
         android:hint="Chef Name"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTitle"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextDuration"
-        android:layout_width="377dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="9dp"
-        android:hint="Duration (e.g., 20 min)"
-
-        app:layout_constraintTop_toBottomOf="@+id/editTextChef"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTitle" />
 
     <Spinner
         android:id="@+id/spinnerCategory"
-        android:layout_width="368dp"
-        android:layout_height="64dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="10dp"
         android:entries="@array/recipe_categories"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDuration"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextChef" />
+
+    <EditText
+        android:id="@+id/editTextDuration"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="15sp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:hint="Duration (e.g., 20 min)"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCategory" />
 
     <EditText
         android:id="@+id/editTextIngredients"
-        android:layout_width="377dp"
-        android:layout_height="61dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:textSize="15sp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="11dp"
+        android:layout_marginTop="10dp"
         android:hint="Ingredients (comma-separated)"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCategory"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextDuration" />
 
     <EditText
         android:id="@+id/editTextInstructions"
-        android:layout_width="356dp"
+        android:layout_width="match_parent"
         android:layout_height="180dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="9dp"
@@ -67,15 +79,36 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextIngredients"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/buttonSaveRecipe"
-        android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="112dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginBottom="28dp"
-        android:text="Save Recipe"
+        android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@+id/editTextInstructions"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <Button
+            android:id="@+id/buttonAddRecipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="28dp"
+            android:text="Add"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:backgroundTint="@color/theme_red" />
 
+        <Button
+            android:id="@+id/buttonCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="28dp"
+            android:backgroundTint="@color/white"
+            android:text="Cancel"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            app:layout_constraintTop_toBottomOf="@+id/editTextInstructions"
+            app:layout_constraintStart_toStartOf="parent" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

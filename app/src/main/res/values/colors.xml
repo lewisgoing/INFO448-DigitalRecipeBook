@@ -2,5 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="theme_gray">#CACACA</color>
+    <color name="theme_red">#e15115</color>
+    <color name="theme_yellow">#FFED00</color>
+    <color name="theme_green">#91AC1C</color>
     <color name="recipe_details_background">#3A3A3A</color>
 </resources>

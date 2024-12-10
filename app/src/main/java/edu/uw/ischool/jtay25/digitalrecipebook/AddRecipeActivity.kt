@@ -1,5 +1,6 @@
 package edu.uw.ischool.jtay25.digitalrecipebook
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -15,7 +16,8 @@ class AddRecipeActivity : AppCompatActivity() {
     private lateinit var spinnerCategory: Spinner
     private lateinit var editTextIngredients: EditText
     private lateinit var editTextInstructions: EditText
-    private lateinit var buttonSaveRecipe: Button
+    private lateinit var buttonAddRecipe: Button
+    private lateinit var buttonCancel: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +31,12 @@ class AddRecipeActivity : AppCompatActivity() {
         spinnerCategory = findViewById(R.id.spinnerCategory)
         editTextIngredients = findViewById(R.id.editTextIngredients)
         editTextInstructions = findViewById(R.id.editTextInstructions)
-        buttonSaveRecipe = findViewById(R.id.buttonSaveRecipe)
+        buttonAddRecipe = findViewById(R.id.buttonAddRecipe)
+        buttonCancel = findViewById(R.id.buttonCancel)
 
         // Set the click listener for the save button
-        buttonSaveRecipe.setOnClickListener { saveRecipeToFirebase() }
+        buttonAddRecipe.setOnClickListener { saveRecipeToFirebase() }
+        buttonCancel.setOnClickListener{startActivity(Intent(this,MainActivity::class.java))}
     }
 
     private fun saveRecipeToFirebase() {

@@ -2,49 +2,58 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:padding="25dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="56dp"
             android:orientation="horizontal"
-            android:gravity="center"
-            android:paddingHorizontal="10dp"
-            android:paddingVertical="5dp"
-            android:background="@color/recipe_details_background">
+            android:background="@color/theme_red">
+
+            <ImageButton
+                android:id="@+id/backArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:background="@color/theme_red"
+                android:src="@drawable/arrow"
+                android:contentDescription="Back Arrow"
+                app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
                 android:id="@+id/titleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
                 android:text="Recipe Title"
-                android:layout_gravity="center"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                android:paddingBottom="8dp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:gravity="end">
-                <ImageView
-                    android:id="@+id/bookmarkIcon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/icon_bookmark_added"
-                    android:contentDescription="Bookmark Icon"
-                    android:layout_gravity="end"
-                    android:padding="8dp" />
-            </LinearLayout>
-        </LinearLayout>
+            <ImageView
+                android:id="@+id/bookmarkIcon"
+                android:layout_width="17dp"
+                android:layout_height="24dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/icon_bookmark_filled"
+                android:contentDescription="Bookmark Icon"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/chefTextView"
@@ -54,7 +63,7 @@
             android:layout_marginTop="15dp"
             android:textSize="18sp"
             android:paddingLeft="10dp"
-            android:paddingBottom="8dp"
+            android:paddingBottom="5dp"
             android:textStyle="bold"
             />
 
@@ -63,18 +72,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Category: Category Name"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:paddingLeft="10dp"
-            android:paddingBottom="8dp" />
+            android:paddingBottom="5dp" />
 
         <TextView
             android:id="@+id/durationTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Duration: Time"
-            android:textSize="16sp"
+            android:textSize="15sp"
             android:paddingLeft="10dp"
-            android:paddingBottom="16dp" />
+            android:paddingBottom="15dp" />
 
         <TextView
             android:id="@+id/ingredientsHeader"
@@ -84,7 +93,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:paddingLeft="10dp"
-            android:paddingBottom="4dp" />
+            android:paddingBottom="10dp" />
 
         <TextView
             android:id="@+id/ingredientsTextView"
@@ -92,7 +101,7 @@
             android:layout_height="wrap_content"
             android:text="Ingredient list"
             android:paddingLeft="10dp"
-            android:paddingBottom="16dp" />
+            android:paddingBottom="15dp" />
 
         <TextView
             android:id="@+id/instructionsHeader"
@@ -102,7 +111,7 @@
             android:textSize="18sp"
             android:textStyle="bold"
             android:paddingLeft="10dp"
-            android:paddingBottom="4dp" />
+            android:paddingBottom="10dp" />
 
         <TextView
             android:id="@+id/instructionsTextView"
@@ -110,6 +119,6 @@
             android:layout_height="wrap_content"
             android:text="Instructions list"
             android:paddingLeft="10dp"
-            android:paddingBottom="16dp" />
+            android:paddingBottom="10dp" />
     </LinearLayout>
 </ScrollView>

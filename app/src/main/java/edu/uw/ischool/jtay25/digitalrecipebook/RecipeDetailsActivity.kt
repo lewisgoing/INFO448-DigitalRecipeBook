@@ -1,7 +1,9 @@
 package edu.uw.ischool.jtay25.digitalrecipebook
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -20,6 +22,7 @@ class RecipeDetailsActivity : AppCompatActivity() {
     private lateinit var instructionsTextView: TextView
     private lateinit var ingredientsTextView: TextView
     private lateinit var bookmarkIcon: ImageView
+    private lateinit var backArrow: ImageButton
 
     private lateinit var recipeId: String
     private lateinit var currentRecipe: Recipe
@@ -36,6 +39,7 @@ class RecipeDetailsActivity : AppCompatActivity() {
         instructionsTextView = findViewById(R.id.instructionsTextView)
         ingredientsTextView = findViewById(R.id.ingredientsTextView)
         bookmarkIcon = findViewById(R.id.bookmarkIcon)
+        backArrow = findViewById(R.id.backArrow)
 
         // Get the recipe ID from the intent
         recipeId = intent.getStringExtra("RECIPE_ID") ?: ""
@@ -49,6 +53,8 @@ class RecipeDetailsActivity : AppCompatActivity() {
         bookmarkIcon.setOnClickListener {
             toggleFavoriteStatus()
         }
+
+        backArrow.setOnClickListener { startActivity(Intent(this,MainActivity::class.java)) }
     }
 
     private fun fetchRecipeDetails(recipeId: String) {
@@ -104,7 +110,7 @@ class RecipeDetailsActivity : AppCompatActivity() {
         val isFavorite = favoriteRecipes.any { it.id == currentRecipe.id }
         if (isFavorite) {
             favoriteRecipes.removeAll { it.id == currentRecipe.id }
-            bookmarkIcon.setImageResource(R.drawable.icon_bookmark)
+            bookmarkIcon.setImageResource(R.drawable.icon_bookmark_filled)
             Toast.makeText(this, "Removed from favorites", Toast.LENGTH_SHORT).show()
         } else {
             favoriteRecipes.add(
@@ -133,7 +139,7 @@ class RecipeDetailsActivity : AppCompatActivity() {
 
     private fun updateBookmarkIcon(isFavorite: Boolean) {
         bookmarkIcon.setImageResource(
-            if (isFavorite) R.drawable.icon_bookmark_added else R.drawable.icon_bookmark
+            if (isFavorite) R.drawable.icon_bookmark_added else R.drawable.icon_bookmark_filled
         )
     }
 }

@@ -2,9 +2,10 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="16dp"
+    android:layout_marginHorizontal="32dp"
     android:layout_marginVertical="8dp"
     app:cardCornerRadius="16dp">
 
@@ -18,12 +19,7 @@
             android:layout_height="match_parent"
             android:scaleType="centerCrop"/>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/recipe_card_gradient_overlay"/>
-
-<!--        <LinearLayout-->
+        <!--        <LinearLayout-->
 <!--            android:id="@+id/ratingBadge"-->
 <!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="wrap_content"-->
@@ -49,6 +45,13 @@
 <!--                android:layout_marginStart="4dp"/>-->
 <!--        </LinearLayout>-->
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/recipe_card_gradient_overlay"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
         <TextView
             android:id="@+id/recipeTitle"
             android:layout_width="0dp"
@@ -72,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.67"/>
+            app:layout_constraintGuide_end="94dp" />
 
         <TextView
             android:id="@+id/chefName"
@@ -90,7 +93,6 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
-            android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             app:layout_constraintEnd_toStartOf="@id/bookmarkIcon"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -108,7 +110,9 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                android:layout_marginStart="4dp"/>
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintEnd_toEndOf="parent"/>
         </LinearLayout>
 
         <ImageView

@@ -3,17 +3,16 @@
 
     <item
         android:id="@+id/home"
-        android:icon="@drawable/icon_home"
-        android:title="Home" />
+        android:icon="@drawable/home_selector"
+        android:title="@string/home" />
 
     <item
-        android:id="@+id/nav_add_recipe"
-        android:icon="@drawable/icon_addrecipe"
-        android:title="Add Recipe"  />
+        android:enabled="false"
+        android:title=""  />
 
     <item
         android:id="@+id/favorite"
-        android:icon="@drawable/icon_bookmark"
-        android:title="Favorite Recipes" />
+        android:icon="@drawable/favorite_selector"
+        android:title="@string/favorite_recipes" />
 
 </menu>

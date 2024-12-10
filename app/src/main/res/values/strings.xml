@@ -18,6 +18,17 @@
     <string name="long_over_60_min">Long (over 60 min)</string>
     <string name="cooking_time">Cooking Time</string>
     <string name="category">Category</string>
+    <string name="home_title">Recipe Book</string>
+    <string name="breakfast">Breakfast</string>
+    <string name="lunch">Lunch</string>
+    <string name="dinner">Dinner</string>
+    <string name="appetizer">Appetizer</string>
+    <string name="dessert">Dessert</string>
+    <string name="image_desc_1">Breakfast Button</string>
+    <string name="image_desc_2">Lunch Button</string>
+    <string name="image_desc_3">Dinner Button</string>
+    <string name="image_desc_4">Appetizers Button</string>
+    <string name="image_desc_5">Desserts Button</string>
     <string-array name="recipe_categories">
         <item>Breakfast</item>
         <item>Lunch</item>
