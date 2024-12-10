@@ -85,18 +85,18 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.searchContainer, SearchFragment.newInstance())
             .commit()
     }
-//    private fun showSearchFragment() {
+    //    private fun showSearchFragment() {
 //        supportFragmentManager.beginTransaction()
 //            .replace(R.id.frameLayout, SearchFragment.newInstance())
 //            .addToBackStack(null)
 //            .commit()
 //    }
-private fun navigateToRecipeDetails(recipe: Recipe) {
-    // Navigate to RecipeDetailsActivity with recipe ID
-    val intent = Intent(this, RecipeDetailsActivity::class.java)
-    intent.putExtra("RECIPE_ID", recipe.id)
-    startActivity(intent)
-}
+    private fun navigateToRecipeDetails(recipe: Recipe) {
+        // Navigate to RecipeDetailsActivity with recipe ID
+        val intent = Intent(this, RecipeDetailsActivity::class.java)
+        intent.putExtra("RECIPE_ID", recipe.id)
+        startActivity(intent)
+    }
 
     private fun filterRecipes(category: String) {
         val db = com.google.firebase.database.FirebaseDatabase.getInstance()
@@ -137,5 +137,3 @@ private fun navigateToRecipeDetails(recipe: Recipe) {
 //            }
 //    }
 }
-
-

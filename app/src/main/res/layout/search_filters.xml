@@ -29,36 +29,10 @@
         android:textStyle="bold"
         android:layout_marginBottom="8dp"/>
 
-    <RadioGroup
-        android:id="@+id/timeGroup"
+    <Spinner
+        android:id="@+id/durationSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <RadioButton
-            android:id="@+id/anyTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/any_time"
-            android:checked="true"/>
-
-        <RadioButton
-            android:id="@+id/quick"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/quick_under_30_min"/>
-
-        <RadioButton
-            android:id="@+id/medium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/medium_30_60_min"/>
-
-        <RadioButton
-            android:id="@+id/long_duration"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/long_over_60_min"/>
-    </RadioGroup>
+        android:layout_marginBottom="16dp"/>
 
 </LinearLayout>
