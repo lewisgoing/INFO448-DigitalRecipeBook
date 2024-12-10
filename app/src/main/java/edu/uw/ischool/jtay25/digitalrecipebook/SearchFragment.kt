@@ -27,7 +27,7 @@ class SearchFragment : Fragment() {
     private val database = FirebaseDatabase.getInstance()
     private val recipesRef = database.getReference("recipes")
 
-    // Track current filter and search state
+    // current filter and search state
     private var currentCategory: String? = null
     private var currentDuration: String? = null
     private var currentSearchQuery: String = ""
@@ -97,7 +97,6 @@ class SearchFragment : Fragment() {
         durationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         durationSpinner.adapter = durationAdapter
 
-        // Set current selections
         val currentCategoryIndex = when (currentCategory) {
             "Breakfast" -> 1
             "Lunch" -> 2
@@ -178,7 +177,6 @@ class SearchFragment : Fragment() {
             true
         }
 
-        // Add search icon click listener
         val searchIcon = searchView.findViewById<ImageView>(androidx.appcompat.R.id.search_button)
         searchIcon.setOnClickListener {
             hideKeyboard()
@@ -196,14 +194,12 @@ class SearchFragment : Fragment() {
     private fun applyFiltersAndSearch() {
         filteredRecipes.clear()
 
-        // Apply category filter
         var filtered = if (currentCategory != null) {
             allRecipes.filter { it.category == currentCategory }
         } else {
             allRecipes
         }
 
-        // Apply duration filter
         filtered = when (currentDuration) {
             "Under 30 mins" -> filtered.filter {
                 val minutes = parseMinutes(it.duration)
