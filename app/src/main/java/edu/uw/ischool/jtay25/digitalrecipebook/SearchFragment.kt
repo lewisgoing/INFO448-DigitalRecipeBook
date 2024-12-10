@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.FirebaseDatabase
+import java.util.Locale
 
 class SearchFragment : Fragment() {
     private lateinit var searchView: SearchView
@@ -234,7 +235,7 @@ class SearchFragment : Fragment() {
     }
 
     private fun parseMinutes(duration: String): Int {
-        val durationLower = duration.toLowerCase()
+        val durationLower = duration.lowercase(Locale.ROOT)
         return when {
             durationLower.contains("hour") && durationLower.contains("min") -> {
                 val hours = """(\d+)\s*hour""".toRegex().find(durationLower)?.groupValues?.get(1)?.toIntOrNull() ?: 0
