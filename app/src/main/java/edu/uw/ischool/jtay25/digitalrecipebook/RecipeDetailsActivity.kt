@@ -67,7 +67,7 @@ class RecipeDetailsActivity : AppCompatActivity() {
                 currentRecipe = Recipe(
                     id = recipeId,
                     title = title ?: "N/A",
-                    chef = chef ?: "Unknown",
+                    chef = chef ?: "N/A",
                     duration = duration ?: "N/A",
                     ingredients = ingredients ?: emptyList(),
                     instructions = instructions ?: emptyList(),
