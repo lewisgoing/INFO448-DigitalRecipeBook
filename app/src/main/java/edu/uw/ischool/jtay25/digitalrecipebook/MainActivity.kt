@@ -31,36 +31,39 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         FirebaseApp.initializeApp(this)
+
+
+
         recyclerView = findViewById(R.id.cardView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = RecipeAdapter(recipeList) { recipe ->
             navigateToRecipeDetails(recipe)
         }
         recyclerView.adapter = adapter
-// get rid of intent
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.searchContainer, SearchFragment.newInstance())
-//            .commit()
 
+
+// get rid of intent
+        setupNavigation()
+        setupSearch()
+
+    }
+
+    private fun setupNavigation() {
         navBar = findViewById(R.id.bottomNavigationView)
-        navBar.setSelectedItemId(R.id.home)
+        navBar.selectedItemId = R.id.home
 
         navBar.setOnItemSelectedListener{ item ->
             when(item.itemId) {
-                R.id.home -> {
-                    true
-                }
+                R.id.home -> true
                 R.id.favorite -> {
                     startActivity(Intent(this, FavoriteRecipesActivity::class.java))
                     true
                 }
                 R.id.nav_add_recipe -> {
                     Log.d("Navigation", "Add Recipe clicked")
-                    val intent = Intent(this, AddRecipeActivity::class.java)
-                    startActivity(intent)
+                    startActivity(Intent(this, AddRecipeActivity::class.java))
                     true
                 }
                 else -> false
@@ -72,9 +75,16 @@ class MainActivity : AppCompatActivity() {
         findViewById<ImageButton>(R.id.imageButton4).setOnClickListener { filterRecipes("Dinner") }
         findViewById<ImageButton>(R.id.imageButton5).setOnClickListener { filterRecipes("Appetizers") }
         findViewById<ImageButton>(R.id.imageButton6).setOnClickListener { filterRecipes("Dessert") }
-
     }
 
+
+
+    private fun setupSearch() {
+        // Add search fragment
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.searchContainer, SearchFragment.newInstance())
+            .commit()
+    }
 //    private fun showSearchFragment() {
 //        supportFragmentManager.beginTransaction()
 //            .replace(R.id.frameLayout, SearchFragment.newInstance())
