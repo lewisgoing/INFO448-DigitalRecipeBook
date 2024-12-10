@@ -36,7 +36,7 @@ class AddRecipeActivity : AppCompatActivity() {
 
         // Set the click listener for the save button
         buttonAddRecipe.setOnClickListener { saveRecipeToFirebase() }
-        buttonCancel.setOnClickListener{startActivity(Intent(this,MainActivity::class.java))}
+        buttonCancel.setOnClickListener{ onBackPressed() }
     }
 
     private fun saveRecipeToFirebase() {

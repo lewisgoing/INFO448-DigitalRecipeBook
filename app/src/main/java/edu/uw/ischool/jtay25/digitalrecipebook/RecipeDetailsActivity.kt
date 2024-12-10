@@ -54,7 +54,7 @@ class RecipeDetailsActivity : AppCompatActivity() {
             toggleFavoriteStatus()
         }
 
-        backArrow.setOnClickListener { startActivity(Intent(this,MainActivity::class.java)) }
+        backArrow.setOnClickListener { onBackPressed() }
     }
 
     private fun fetchRecipeDetails(recipeId: String) {

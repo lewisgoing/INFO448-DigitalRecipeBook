@@ -51,39 +51,14 @@ class MainActivity : AppCompatActivity() {
 
         setupNavigation()
         setupSearch()
+        setUpCategories()
     }
-
-    private fun setupNavigation() {
-        navBar = findViewById(R.id.bottomNavigationView)
-        navBar.selectedItemId = R.id.home
-
-        val navBar = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
-        navBar.setSelectedItemId(R.id.home)
-
-        navBar.setOnItemSelectedListener{ item ->
-            when(item.itemId) {
-                R.id.home -> true
-                R.id.favorite -> {
-                    startActivity(Intent(this, FavoriteRecipesActivity::class.java))
-                    true
-                }
-                else -> false
-            }
-        }
-
-        val addRecipe = findViewById<FloatingActionButton>(R.id.addRecipe)
-
-        addRecipe.setOnClickListener {
-            Log.d("Navigation", "Add Recipe clicked")
-            val intent = Intent(this, AddRecipeActivity::class.java)
-            startActivity(intent)
-        }
-
-        breakfast = findViewById<ImageButton>(R.id.imageButton1)
-        lunch = findViewById<ImageButton>(R.id.imageButton2)
-        dinner = findViewById<ImageButton>(R.id.imageButton3)
-        appetizer = findViewById<ImageButton>(R.id.imageButton4)
-        dessert = findViewById<ImageButton>(R.id.imageButton5)
+    private fun setUpCategories() {
+        breakfast = findViewById(R.id.imageButton1)
+        lunch = findViewById(R.id.imageButton2)
+        dinner = findViewById(R.id.imageButton3)
+        appetizer = findViewById(R.id.imageButton4)
+        dessert = findViewById(R.id.imageButton5)
         var oldSelection = ""
         breakfast.setOnClickListener {
             val newSelection = "Breakfast"
@@ -114,6 +89,33 @@ class MainActivity : AppCompatActivity() {
             filterRecipes(newSelection)
             updateCategorySelection(newSelection, oldSelection)
             oldSelection = newSelection
+        }
+    }
+
+    private fun setupNavigation() {
+        navBar = findViewById(R.id.bottomNavigationView)
+        navBar.selectedItemId = R.id.home
+
+        val navBar = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        navBar.setSelectedItemId(R.id.home)
+
+        navBar.setOnItemSelectedListener{ item ->
+            when(item.itemId) {
+                R.id.home -> true
+                R.id.favorite -> {
+                    startActivity(Intent(this, FavoriteRecipesActivity::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
+
+        val addRecipe = findViewById<FloatingActionButton>(R.id.addRecipe)
+
+        addRecipe.setOnClickListener {
+            Log.d("Navigation", "Add Recipe clicked")
+            val intent = Intent(this, AddRecipeActivity::class.java)
+            startActivity(intent)
         }
     }
 
