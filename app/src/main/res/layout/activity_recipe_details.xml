@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:orientation="horizontal"
-            android:background="@color/theme_red">
+            android:background="@drawable/recipe_title_background">
 
             <ImageButton
                 android:id="@+id/backArrow"

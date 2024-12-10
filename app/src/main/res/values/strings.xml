@@ -22,13 +22,13 @@
     <string name="breakfast">Breakfast</string>
     <string name="lunch">Lunch</string>
     <string name="dinner">Dinner</string>
-    <string name="appetizer">Appetizer</string>
+    <string name="appetizer">Appetizers</string>
     <string name="dessert">Dessert</string>
     <string name="image_desc_1">Breakfast Button</string>
     <string name="image_desc_2">Lunch Button</string>
     <string name="image_desc_3">Dinner Button</string>
     <string name="image_desc_4">Appetizers Button</string>
-    <string name="image_desc_5">Desserts Button</string>
+    <string name="image_desc_5">Dessert Button</string>
     <string-array name="recipe_categories">
         <item>Breakfast</item>
         <item>Lunch</item>

@@ -279,6 +279,8 @@ class SearchFragment : Fragment() {
     }
 
     private fun showSearchUI() {
+        searchView.setBackgroundResource(R.drawable.search_selected_background)
+
         view?.setBackgroundColor(requireContext().getColor(android.R.color.white))
         requireActivity().findViewById<ConstraintLayout>(R.id.frameLayout)?.visibility = View.GONE
 
@@ -296,6 +298,8 @@ class SearchFragment : Fragment() {
     }
 
     private fun hideSearchUI() {
+        searchView.setBackgroundResource(R.drawable.search_background)
+
         view?.setBackgroundColor(requireContext().getColor(android.R.color.transparent))
         recyclerView.visibility = View.GONE
         requireActivity().findViewById<ConstraintLayout>(R.id.frameLayout)?.visibility = View.VISIBLE
